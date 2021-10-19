@@ -40,6 +40,7 @@ setInterval(exchangerate, 60000);
 let moneyManager = new MoneyManager;
 moneyManager.addMoneyCallback = ((data) => {
     ApiConnector.addMoney(data, (response) => {
+        console.log(data, (response));
         if (response.success) {
             ProfileWidget.showProfile(response.data);
             moneyManager.setMessage("Успешное пополнение кошелька");
@@ -50,8 +51,9 @@ moneyManager.addMoneyCallback = ((data) => {
 })
 
 //Конвертирование валюты
-MoneyManager.conversionMoneyCallback = ((data) => {
+moneyManager.conversionMoneyCallback = ((data) => {
     ApiConnector.convertMoney(data, (response) => {
+        console.log(data, (response));
         if (response.success) {
             ProfileWidget.showProfile(response.data);
             moneyManager.setMessage("Конвертирование успешно");
@@ -64,6 +66,7 @@ MoneyManager.conversionMoneyCallback = ((data) => {
 //Перевод валюты
 moneyManager.sendMoneyCallback = ((data) => {
     ApiConnector.transferMoney(data, (response) => {
+        console.log(data, (response));
         if (response.success) {
             ProfileWidget.showProfile(response.data);
             moneyManager.setMessage("Перевод выполнен");
