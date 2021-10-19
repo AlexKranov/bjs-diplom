@@ -5,7 +5,7 @@ logoutButton.action = () => {
         if (response.success) {
             location.reload();
         } else {
-            console.error(`${response.error}`);
+            console.error(response.error);
         }
     })
 }
@@ -15,7 +15,7 @@ let current = ApiConnector.current((response) => {
     if (response.success) {
         ProfileWidget.showProfile(response.data);
     } else {
-        console.error(`${response.error}`)
+        console.error(response.error);
     }
 });
 
@@ -28,7 +28,7 @@ function exchangerate() {
             rateBoard.clearTable();
             rateBoard.fillTable(response.data);
         } else {
-            console.error(`${response.error}`);
+            console.error(response.error);
         }
     });
 }
